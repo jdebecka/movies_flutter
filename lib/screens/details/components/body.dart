@@ -27,14 +27,14 @@ class Body extends StatelessWidget {
               horizontal: defaultPadding,
             ),
             child: Text(
-              "Plot Summary",
+              "Overview",
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
-              movie.plot,
+              movie.overview,
               style: TextStyle(
                 color: Color(0xFF737599),
               ),

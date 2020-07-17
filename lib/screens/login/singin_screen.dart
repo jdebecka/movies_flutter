@@ -1,22 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SignInApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        '/': (context) => SignInScreen(),
-      },
-    );
-  }
-}
-
 class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _signInButtonPressed() {
-    }
+    void _signInButtonPressed() {}
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: Container(

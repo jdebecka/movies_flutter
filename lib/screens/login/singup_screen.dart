@@ -1,22 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SignUpApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        '/': (context) => SignUpScreen(),
-      },
-    );
-  }
-}
-
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _signInButtonPressed() {
-    }
+    void _signInButtonPressed() {}
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: Container(
@@ -48,14 +36,14 @@ class SignUpScreen extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
-                child: Text("Already registered?",
-                  style: TextStyle(
-                      color: Colors.grey[500]
-                  ),
+                child: Text(
+                  "Already registered?",
+                  style: TextStyle(color: Colors.grey[500]),
                 ),
               ),
               FlatButton(
-                child: Text("sing in"),
+                onPressed: () {},
+                child: Text("Sign in"),
               )
             ]),
       ),
@@ -135,7 +123,6 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
               style: TextStyle(
                 color: Colors.blueGrey[600],
-
               ),
             ),
           ),

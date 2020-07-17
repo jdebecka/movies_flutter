@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
+import 'package:movies/screens/login/singup_screen.dart';
 
 class Categorylist extends StatefulWidget {
   @override
@@ -30,6 +31,7 @@ class _CategoryListState extends State<Categorylist> {
         onTap: () {
           setState(() {
             selectedCategory = index;
+            SignUpScreen();
           });
         },
         child: Column(
