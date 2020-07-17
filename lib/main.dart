@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:movies/screens/home/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MovieApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MovieApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Movie App',
+      title: 'Movies',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

@@ -15,7 +15,7 @@ class SignInScreen extends StatelessWidget {
               Container(
                   margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 24.0),
                   child: Text(
-                    'Sign up',
+                    'Sign In',
                     style: TextStyle(
                       color: Colors.grey[400],
                       fontSize: 40,
