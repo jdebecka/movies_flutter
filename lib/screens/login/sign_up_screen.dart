@@ -26,7 +26,8 @@ class SignUpScreen extends StatelessWidget {
                   )),
               SignUpForm(),
               FlatButton(
-                onPressed: ,
+                onPressed: () {
+                },
                 padding: EdgeInsets.all(10),
                 child: Container(
                   decoration: new BoxDecoration(
