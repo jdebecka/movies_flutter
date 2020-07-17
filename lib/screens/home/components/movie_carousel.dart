@@ -3,6 +3,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
+import 'package:movies/services/movieAPI.dart';
+import 'package:movies/services/networking.dart';
 
 import 'movie_card.dart';
 
@@ -17,11 +19,13 @@ class _MovieCarouselState extends State<MovieCarousel> {
 
   final movie = movieFromJson("api call url");
 
-  //List<Movie> movies =
+  Future<Movie> movies;
 
   @override
   void initState() {
     super.initState();
+    movies = MovieModel().getNowPlaying();
+    print(movies.then((value) => print(value)));
     _pageController = PageController(
       viewportFraction: 0.8,
       initialPage: initialPage,
@@ -48,7 +52,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
           },
           controller: _pageController,
           physics: ClampingScrollPhysics(),
-          itemCount: movies.length,
+          itemCount: 1,
           itemBuilder: (context, index) => buildMovieSlider(index),
         ),
       ),
@@ -68,7 +72,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
             opacity: initialPage == index ? 1 : 0.4,
             child: Transform.rotate(
               angle: math.pi * value,
-              child: MovieCard(movie: movies[index]),
+              child: MovieCard(movie: Movie()),
             ),
           );
         },
