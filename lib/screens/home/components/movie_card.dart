@@ -33,8 +33,8 @@ class MovieCard extends StatelessWidget {
               boxShadow: [defaultShadow],
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage(
-                        'https://image.tmdb.org/t/p/w1280/AsdB9A2XGalCZVjlyG9tRf03IfW.jpg') ??
+                image: NetworkImage('https://image.tmdb.org/t/p/w1280' +
+                        movie.posterPath) ??
                     AssetImage('images/poster2'),
               ),
             ),
