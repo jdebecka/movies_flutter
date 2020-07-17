@@ -1,4 +1,5 @@
 import '../constants.dart';
+import '../constants.dart';
 
 enum Endpoint {
   nowPlaying, apiKey, language

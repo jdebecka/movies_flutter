@@ -16,8 +16,12 @@ class NetworkHelper {
 
     if (response.statusCode == 200) {
       String data = response.body;
+      Movie movieData = movieFromJson(data);
 
-      return movieFromJson(data);
+      movieData.results.forEach((element) {
+        print(element.originalTitle);
+      });
+      return movieData;
     } else {
       print(response.statusCode);
     }

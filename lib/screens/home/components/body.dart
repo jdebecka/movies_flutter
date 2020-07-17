@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
-
 import 'categories.dart';
 import 'movie_carousel.dart';
 
