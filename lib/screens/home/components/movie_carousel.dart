@@ -3,10 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
-import 'package:movies/services/location.dart';
-import 'package:movies/services/movieAPI.dart';
 import '../../../models/movie.dart';
-
 import 'movie_card.dart';
 
 class MovieCarousel extends StatefulWidget {
@@ -26,7 +23,6 @@ class _MovieCarouselState extends State<MovieCarousel> {
 
   PageController _pageController;
   int initialPage = 1;
-
 
   @override
   void dispose() {

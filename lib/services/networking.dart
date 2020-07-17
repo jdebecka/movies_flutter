@@ -19,7 +19,7 @@ class NetworkHelper {
       Movie movieData = movieFromJson(data);
 
       movieData.results.forEach((element) {
-        print(element.originalTitle);
+        print(element.posterPath);
       });
       return movieData;
     } else {
