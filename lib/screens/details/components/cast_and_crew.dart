@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies/constants.dart';
 
+import '../../../constants.dart';
 import 'cast_card.dart';
 
 class CastAndCrew extends StatelessWidget {
@@ -11,7 +11,7 @@ class CastAndCrew extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.all(kDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -19,7 +19,7 @@ class CastAndCrew extends StatelessWidget {
             "Cast & Crew",
             style: Theme.of(context).textTheme.headline5,
           ),
-          SizedBox(height: defaultPadding),
+          SizedBox(height: kDefaultPadding),
           SizedBox(
             height: 160,
             child: ListView.builder(

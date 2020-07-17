@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:movies/constants.dart';
-import 'package:movies/screens/login/singup_screen.dart';
+import 'package:movies/screens/login/sign_up_screen.dart';
 
+import '../../../constants.dart';
+
+// We need stateful widget because we need to change some sate on our category
 class Categorylist extends StatefulWidget {
   @override
-  _CategoryListState createState() => _CategoryListState();
+  _CategorylistState createState() => _CategorylistState();
 }
 
-class _CategoryListState extends State<Categorylist> {
+class _CategorylistState extends State<Categorylist> {
   int selectedCategory = 0;
-  List<String> categories = ["Movies", "Your account"];
+  List<String> categories = ["In Theaters", "Your account"];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
+      margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
       height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -26,12 +28,17 @@ class _CategoryListState extends State<Categorylist> {
 
   Padding buildCategory(int index, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: GestureDetector(
         onTap: () {
           setState(() {
             selectedCategory = index;
-            SignUpScreen();
+            if (selectedCategory == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
+              );
+            }
           });
         },
         child: Column(
@@ -42,18 +49,18 @@ class _CategoryListState extends State<Categorylist> {
               style: Theme.of(context).textTheme.headline5.copyWith(
                     fontWeight: FontWeight.w600,
                     color: index == selectedCategory
-                        ? textColor
+                        ? kTextColor
                         : Colors.black.withOpacity(0.4),
                   ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
+              margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
               height: 6,
               width: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: index == selectedCategory
-                    ? secondaryColor
+                    ? kSecondaryColor
                     : Colors.transparent,
               ),
             )

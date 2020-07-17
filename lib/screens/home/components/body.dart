@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Categorylist(),
-            SizedBox(height: defaultPadding),
+            SizedBox(height: kDefaultPadding),
             MovieCarousel(),
           ],
         ),

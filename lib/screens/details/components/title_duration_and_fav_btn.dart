@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
+
+import '../../../constants.dart';
 
 class TitleDurationAndFabBtn extends StatelessWidget {
   const TitleDurationAndFabBtn({
@@ -13,7 +14,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.all(kDefaultPadding),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -24,22 +25,22 @@ class TitleDurationAndFabBtn extends StatelessWidget {
                   movie.title,
                   style: Theme.of(context).textTheme.headline5,
                 ),
-                SizedBox(height: defaultPadding / 2),
+                SizedBox(height: kDefaultPadding / 2),
                 Row(
                   children: <Widget>[
                     Text(
-                      '${movie.releaseDate}',
-                      style: TextStyle(color: textLightColor),
+                      '${movie.year}',
+                      style: TextStyle(color: kTextLightColor),
                     ),
-                    SizedBox(width: defaultPadding),
+                    SizedBox(width: kDefaultPadding),
                     Text(
                       "PG-13",
-                      style: TextStyle(color: textLightColor),
+                      style: TextStyle(color: kTextLightColor),
                     ),
-                    SizedBox(width: defaultPadding),
+                    SizedBox(width: kDefaultPadding),
                     Text(
                       "2h 32min",
-                      style: TextStyle(color: textLightColor),
+                      style: TextStyle(color: kTextLightColor),
                     ),
                   ],
                 )
@@ -51,7 +52,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
             width: 64,
             child: FlatButton(
               onPressed: () {},
-              color: secondaryColor,
+              color: kSecondaryColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               child: Icon(

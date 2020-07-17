@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
+
+import '../../../constants.dart';
 
 class BackdropAndRating extends StatelessWidget {
   const BackdropAndRating({
@@ -53,7 +54,8 @@ class BackdropAndRating extends StatelessWidget {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
@@ -61,7 +63,7 @@ class BackdropAndRating extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SvgPicture.asset("assets/icons/star_fill.svg"),
-                        SizedBox(height: defaultPadding / 4),
+                        SizedBox(height: kDefaultPadding / 4),
                         RichText(
                           text: TextSpan(
                             style: TextStyle(color: Colors.black),
@@ -74,7 +76,7 @@ class BackdropAndRating extends StatelessWidget {
                               TextSpan(text: "10\n"),
                               TextSpan(
                                 text: "150,212",
-                                style: TextStyle(color: textLightColor),
+                                style: TextStyle(color: kTextLightColor),
                               ),
                             ],
                           ),
@@ -86,9 +88,12 @@ class BackdropAndRating extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SvgPicture.asset("assets/icons/star.svg"),
-                        SizedBox(height: defaultPadding / 4),
+                        SizedBox(height: kDefaultPadding / 4),
                         Text("Rate This",
-                            style: Theme.of(context).textTheme.bodyText2),
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .bodyText2),
                       ],
                     ),
                     // Metascore
@@ -110,7 +115,7 @@ class BackdropAndRating extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: defaultPadding / 4),
+                        SizedBox(height: kDefaultPadding / 4),
                         Text(
                           "Metascore",
                           style: TextStyle(
@@ -118,7 +123,7 @@ class BackdropAndRating extends StatelessWidget {
                         ),
                         Text(
                           "62 critic reviews",
-                          style: TextStyle(color: textLightColor),
+                          style: TextStyle(color: kTextLightColor),
                         )
                       ],
                     )
