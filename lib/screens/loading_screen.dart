@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movies/services/movieAPI.dart';
-import 'home/home_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:movies/services/movieAPI.dart';
+
+import 'home/home_screen.dart';
+
 class LoadingScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -31,7 +33,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       body: Center(
         child: SpinKitDoubleBounce(
-          color: Colors.white,
+          color: Colors.red,
           size: 100.0,
         ),
       ),

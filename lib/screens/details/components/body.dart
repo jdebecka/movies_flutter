@@ -4,7 +4,6 @@ import 'package:movies/models/movie.dart';
 
 import '../../../models/movie.dart';
 import 'backdrop_rating.dart';
-import 'cast_and_crew.dart';
 import 'title_duration_and_fav_btn.dart';
 
 class Body extends StatelessWidget {
@@ -35,7 +34,7 @@ class Body extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
-              movie.originalLanguage.toString(),
+              movie.overview,
               style: TextStyle(
                 color: Color(0xFF737599),
               ),

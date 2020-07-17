@@ -5,11 +5,14 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({this.movieData});
 
   final movieData;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Body(),
+      body: Body(
+        movie: movieData.results,
+      ),
     );
   }
 }

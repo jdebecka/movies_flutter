@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:movies/services/location.dart';
-import '../constants.dart';
-import '../models/movie.dart';
+
 import '../models/movie.dart';
 
 class NetworkHelper {
