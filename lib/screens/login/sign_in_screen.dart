@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:movies/screens/login/sign_up_screen.dart';
 class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void _signInButtonPressed() {}
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[300],
+      ),
       backgroundColor: Colors.grey[200],
       body: Container(
         child: Column(
@@ -13,7 +16,7 @@ class SignInScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 24.0),
+                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 12.0),
                   child: Text(
                     'Sign In',
                     style: TextStyle(
@@ -33,6 +36,22 @@ class SignInScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   child: Text('Sign in'),
                 ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
+                child: Text(
+                  "Don't have an account?",
+                  style: TextStyle(color: Colors.grey[500]),
+                ),
+              ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
+                  );
+                },
+                child: Text("Sign up"),
               ),
             ]),
       ),

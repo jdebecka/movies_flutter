@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/screens/login/sign_in_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void _signInButtonPressed() {}
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[300],
+      ),
       backgroundColor: Colors.grey[200],
       body: Container(
         child: Column(
@@ -14,7 +16,7 @@ class SignUpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 24.0),
+                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Sign up',
                     style: TextStyle(
@@ -24,8 +26,8 @@ class SignUpScreen extends StatelessWidget {
                   )),
               SignUpForm(),
               FlatButton(
+                onPressed: ,
                 padding: EdgeInsets.all(10),
-                onPressed: null,
                 child: Container(
                   decoration: new BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -35,22 +37,6 @@ class SignUpScreen extends StatelessWidget {
                   child: Text('Sign up'),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
-                child: Text(
-                  "Already registered?",
-                  style: TextStyle(color: Colors.grey[500]),
-                ),
-              ),
-              FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignInScreen()),
-                  );
-                },
-                child: Text("Sign in"),
-              )
             ]),
       ),
     );
@@ -67,6 +53,10 @@ class _SignUpFormState extends State<SignUpForm> {
   final _lastNameTextController = TextEditingController();
   final _usernameTextController = TextEditingController();
 
+  var username;
+  var email;
+  var password;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -77,6 +67,9 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextFormField(
+              onChanged: (_firstNameTextController) {
+                username = _firstNameTextController.toString();
+              },
               controller: _firstNameTextController,
               decoration: InputDecoration(
                 hintText: 'username',
@@ -96,6 +89,9 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextFormField(
+              onChanged: (_firstNameTextController) {
+                email = _lastNameTextController.toString();
+              },
               controller: _lastNameTextController,
               decoration: InputDecoration(
                 hintText: 'email',
@@ -115,6 +111,9 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextFormField(
+              onChanged: (_firstNameTextController) {
+                password = _usernameTextController.toString();
+              },
               obscureText: true,
               controller: _usernameTextController,
               decoration: InputDecoration(
