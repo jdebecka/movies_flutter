@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
 import 'package:movies/services/movieAPI.dart';
+import 'package:movies/services/location.dart';
 import 'package:movies/services/networking.dart';
 
+import '../../../models/movie.dart';
 import 'movie_card.dart';
 
 class MovieCarousel extends StatefulWidget {
@@ -17,15 +19,13 @@ class _MovieCarouselState extends State<MovieCarousel> {
   PageController _pageController;
   int initialPage = 1;
 
-  final movie = movieFromJson("api call url");
-
-  Future<Movie> movies;
-
+  final movie = movieFromJson(SearchURL.nowPlaying.completeURL);
+  List<Result> movies;
   @override
   void initState() {
+
     super.initState();
-    movies = MovieModel().getNowPlaying();
-    print(movies.then((value) => print(value)));
+    movies = movie.results;
     _pageController = PageController(
       viewportFraction: 0.8,
       initialPage: initialPage,
@@ -72,7 +72,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
             opacity: initialPage == index ? 1 : 0.4,
             child: Transform.rotate(
               angle: math.pi * value,
-              child: MovieCard(movie: Movie()),
+              child: MovieCard(movie: movies[index]),
             ),
           );
         },

@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
 
+import '../../../models/movie.dart';
+
 class BackdropAndRating extends StatelessWidget {
   const BackdropAndRating({
     Key key,
@@ -11,7 +13,7 @@ class BackdropAndRating extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
-  final Movie movie;
+  final Result movie;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class BackdropAndRating extends StatelessWidget {
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(movie.backdrop),
+                image: NetworkImage(movie.backdropPath),
               ),
             ),
           ),
@@ -67,7 +69,7 @@ class BackdropAndRating extends StatelessWidget {
                             style: TextStyle(color: Colors.black),
                             children: [
                               TextSpan(
-                                text: "${movie.rating}/",
+                                text: "${movie.voteAverage}/",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w600),
                               ),
@@ -102,7 +104,7 @@ class BackdropAndRating extends StatelessWidget {
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: Text(
-                            "${movie.metascoreRating}",
+                            "${movie.voteCount}",
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,

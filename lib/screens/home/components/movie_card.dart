@@ -6,13 +6,10 @@ import 'package:movies/models/movie.dart';
 import 'package:movies/screens/details/details_screen.dart';
 
 class MovieCard extends StatelessWidget {
-  final Movie movie;
+  final Result movie;
 
   const MovieCard({Key key, this.movie}) : super(key: key);
 
-  decodeMovie() {
-
-  }
   @override
   Widget build(BuildContext context) {
     return Padding(
