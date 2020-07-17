@@ -14,7 +14,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(kDefaultPadding),
+      padding: EdgeInsets.all(defaultPadding),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -25,22 +25,22 @@ class TitleDurationAndFabBtn extends StatelessWidget {
                   movie.title,
                   style: Theme.of(context).textTheme.headline5,
                 ),
-                SizedBox(height: kDefaultPadding / 2),
+                SizedBox(height: defaultPadding / 2),
                 Row(
                   children: <Widget>[
                     Text(
-                      '${movie.year}',
-                      style: TextStyle(color: kTextLightColor),
+                      '${movie.releaseDate}',
+                      style: TextStyle(color: textLightColor),
                     ),
-                    SizedBox(width: kDefaultPadding),
+                    SizedBox(width: defaultPadding),
                     Text(
                       "PG-13",
-                      style: TextStyle(color: kTextLightColor),
+                      style: TextStyle(color: textLightColor),
                     ),
-                    SizedBox(width: kDefaultPadding),
+                    SizedBox(width: defaultPadding),
                     Text(
                       "2h 32min",
-                      style: TextStyle(color: kTextLightColor),
+                      style: TextStyle(color: textLightColor),
                     ),
                   ],
                 )
@@ -52,7 +52,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
             width: 64,
             child: FlatButton(
               onPressed: () {},
-              color: kSecondaryColor,
+              color: secondaryColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               child: Icon(

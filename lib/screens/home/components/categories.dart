@@ -16,7 +16,7 @@ class _CategorylistState extends State<Categorylist> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
+      margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
       height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -28,7 +28,7 @@ class _CategorylistState extends State<Categorylist> {
 
   Padding buildCategory(int index, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
       child: GestureDetector(
         onTap: () {
           setState(() {
@@ -49,18 +49,18 @@ class _CategorylistState extends State<Categorylist> {
               style: Theme.of(context).textTheme.headline5.copyWith(
                     fontWeight: FontWeight.w600,
                     color: index == selectedCategory
-                        ? kTextColor
+                        ? textColor
                         : Colors.black.withOpacity(0.4),
                   ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
+              margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
               height: 6,
               width: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: index == selectedCategory
-                    ? kSecondaryColor
+                    ? secondaryColor
                     : Colors.transparent,
               ),
             )
