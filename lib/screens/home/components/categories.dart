@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/screens/login/sign_up_screen.dart';
 
 import '../../../constants.dart';
 
@@ -10,7 +11,7 @@ class Categorylist extends StatefulWidget {
 
 class _CategorylistState extends State<Categorylist> {
   int selectedCategory = 0;
-  List<String> categories = ["In Theater", "Box Office", "Coming Soon"];
+  List<String> categories = ["In Theaters", "Your account"];
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,12 @@ class _CategorylistState extends State<Categorylist> {
         onTap: () {
           setState(() {
             selectedCategory = index;
+            if (selectedCategory == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
+              );
+            }
           });
         },
         child: Column(
