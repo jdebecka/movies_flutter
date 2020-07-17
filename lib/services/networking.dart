@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:movies/services/location.dart';
-import '../constants.dart';
-import '../models/movie.dart';
+import 'package:movies/models/genre.dart';
+
 import '../models/movie.dart';
 
 class NetworkHelper {
@@ -11,17 +8,25 @@ class NetworkHelper {
 
   final String url;
 
-  Future getData() async {
+  Future getMovieData() async {
     http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {
       String data = response.body;
       Movie movieData = movieFromJson(data);
-
-      movieData.results.forEach((element) {
-        print(element.posterPath);
-      });
+      
       return movieData;
+    } else {
+      print(response.statusCode);
+    }
+  }
+  Future getGenereData() async {
+    http.Response response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      String data = response.body;
+      Genre genereData = genreFromJson(data);
+      return genereData;
     } else {
       print(response.statusCode);
     }

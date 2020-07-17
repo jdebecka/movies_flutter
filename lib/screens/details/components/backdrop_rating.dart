@@ -18,7 +18,6 @@ class BackdropAndRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // 40% of our total height
       height: size.height * 0.4,
       child: Stack(
         children: <Widget>[
@@ -28,7 +27,7 @@ class BackdropAndRating extends StatelessWidget {
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(movie.backdropPath),
+                image: NetworkImage(imagesBaseUrl + movie.backdropPath),
               ),
             ),
           ),
@@ -37,7 +36,6 @@ class BackdropAndRating extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Container(
-              // it will cover 90% of our total width
               width: size.width * 0.9,
               height: 100,
               decoration: BoxDecoration(
@@ -93,7 +91,6 @@ class BackdropAndRating extends StatelessWidget {
                             style: Theme.of(context).textTheme.bodyText2),
                       ],
                     ),
-                    // Metascore
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

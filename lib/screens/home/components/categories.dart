@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movies/constants.dart';
+import 'package:movies/screens/login/sign_up_screen.dart';
 
+import '../../../constants.dart';
+
+// We need stateful widget because we need to change some sate on our category
 class Categorylist extends StatefulWidget {
   @override
-  _CategoryListState createState() => _CategoryListState();
+  _CategorylistState createState() => _CategorylistState();
 }
 
-class _CategoryListState extends State<Categorylist> {
+class _CategorylistState extends State<Categorylist> {
   int selectedCategory = 0;
-  List<String> categories = ["Movies", "Your account"];
+  List<String> categories = ["In Theaters", "Your account"];
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,12 @@ class _CategoryListState extends State<Categorylist> {
         onTap: () {
           setState(() {
             selectedCategory = index;
+            if (selectedCategory == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
+              );
+            }
           });
         },
         child: Column(

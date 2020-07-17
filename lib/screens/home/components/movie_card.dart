@@ -5,8 +5,6 @@ import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
 import 'package:movies/screens/details/details_screen.dart';
 
-import '../../../constants.dart';
-
 class MovieCard extends StatelessWidget {
   final Result movie;
 
@@ -35,7 +33,8 @@ class MovieCard extends StatelessWidget {
               boxShadow: [defaultShadow],
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage(imageBaseURL + movie.posterPath),
+                image: NetworkImage(imagesBaseUrl + movie.posterPath) ??
+                    AssetImage('images/poster2'),
               ),
             ),
           ),

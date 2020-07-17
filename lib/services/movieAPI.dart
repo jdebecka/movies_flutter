@@ -5,8 +5,16 @@ class MovieModel {
   Future<dynamic> getNowPlaying() async {
     NetworkHelper networkHelper = NetworkHelper(SearchURL.nowPlaying.completeURL);
 
-    var moviesPlayingNow = await networkHelper.getData();
+    var moviesPlayingNow = await networkHelper.getMovieData();
 
     return moviesPlayingNow;
+  }
+
+  Future<dynamic> getGenre() async {
+    NetworkHelper networkHelper = NetworkHelper(SearchURL.genres.completeURL);
+
+    var genreData = await networkHelper.getGenereData();
+
+    return genreData;
   }
 }

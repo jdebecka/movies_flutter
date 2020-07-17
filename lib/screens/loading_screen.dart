@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movies/services/movieAPI.dart';
-import 'home/home_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:movies/services/movieAPI.dart';
+
+import 'home/home_screen.dart';
+
 class LoadingScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -18,9 +20,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   void getMovieData() async {
     var movieData = await MovieModel().getNowPlaying();
+    var genreData = await MovieModel().getGenre();
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return HomeScreen(
-        movieData: movieData,
+        movieData: movieData, genre: genreData,
       );
     }));
   }
@@ -30,7 +33,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       body: Center(
         child: SpinKitDoubleBounce(
-          color: Colors.pink,
+          color: Colors.red,
           size: 100.0,
         ),
       ),

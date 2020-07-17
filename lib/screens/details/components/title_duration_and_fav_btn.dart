@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies/constants.dart';
+import 'package:intl/intl.dart';
 import 'package:movies/models/movie.dart';
+
+import '../../../constants.dart';
 
 class TitleDurationAndFabBtn extends StatelessWidget {
   const TitleDurationAndFabBtn({
@@ -28,7 +30,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      '${movie.releaseDate}',
+                      '${new DateFormat.yMMMMd('en_US').format(movie.releaseDate)}',
                       style: TextStyle(color: textLightColor),
                     ),
                     SizedBox(width: defaultPadding),
@@ -53,7 +55,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
               onPressed: () {},
               color: secondaryColor,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                  borderRadius: BorderRadius.circular(32)),
               child: Icon(
                 Icons.add,
                 size: 28,
