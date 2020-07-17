@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/screens/home/home_screen.dart';
+import 'package:movies/screens/loading_screen.dart';
 
 void main() {
   runApp(MovieApp());
@@ -14,7 +15,7 @@ class MovieApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: LoadingScreen(),
     );
   }
 }
