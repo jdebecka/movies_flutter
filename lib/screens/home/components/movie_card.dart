@@ -10,6 +10,9 @@ class MovieCard extends StatelessWidget {
 
   const MovieCard({Key key, this.movie}) : super(key: key);
 
+  decodeMovie() {
+
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
