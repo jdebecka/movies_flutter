@@ -8,7 +8,6 @@ class DetailsScreen extends StatelessWidget {
   final Result movie;
 
   const DetailsScreen({Key key, this.movie}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
