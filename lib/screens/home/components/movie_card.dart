@@ -1,9 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
 import 'package:movies/screens/details/details_screen.dart';
+
+import '../../../constants.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -13,7 +14,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: OpenContainer(
         closedElevation: 0,
         openElevation: 0,
@@ -30,16 +31,16 @@ class MovieCard extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              boxShadow: [defaultShadow],
+              boxShadow: [kDefaultShadow],
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(movie.posterPath),
+                image: AssetImage(movie.poster),
               ),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: defaultPadding / 2),
+          padding: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
           child: Text(
             movie.title,
             style: Theme.of(context)
@@ -55,10 +56,13 @@ class MovieCard extends StatelessWidget {
               "assets/icons/star_fill.svg",
               height: 20,
             ),
-            SizedBox(width: defaultPadding / 2),
+            SizedBox(width: kDefaultPadding / 2),
             Text(
-              "${movie.voteAverage}",
-              style: Theme.of(context).textTheme.bodyText2,
+              "${movie.rating}",
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText2,
             )
           ],
         )
