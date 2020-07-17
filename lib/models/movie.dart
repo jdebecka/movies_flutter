@@ -1,4 +1,3 @@
-// Our movie model
 class Movie {
   final int id, year, numOfRatings, criticsReview, metascoreRating;
   final double rating;
@@ -22,7 +21,6 @@ class Movie {
   });
 }
 
-// our demo data movie data
 List<Movie> movies = [
   Movie(
     id: 1,
@@ -95,7 +93,7 @@ List<Movie> movies = [
     ],
   ),
   Movie(
-    id: 1,
+    id: 3,
     title: "Onward",
     year: 2020,
     poster: "assets/images/poster_3.jpg",
