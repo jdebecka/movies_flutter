@@ -19,15 +19,16 @@ extension EndopointEx on Endpoint {
 }
 
 enum SearchURL {
-  nowPlaying
+  nowPlaying, images
 }
 
 extension SearchURLEX on SearchURL {
-
   String get completeURL {
     switch(this) {
       case SearchURL.nowPlaying:
         return  movieBaseURL + Endpoint.nowPlaying.endpoint + Endpoint.apiKey.endpoint + apiKey + Endpoint.language.endpoint;
+      case SearchURL.images:
+        return imageBaseURL;
     }
   }
 }
