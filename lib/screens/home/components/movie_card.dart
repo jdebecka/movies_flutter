@@ -33,7 +33,7 @@ class MovieCard extends StatelessWidget {
               boxShadow: [defaultShadow],
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(movie.poster),
+                image: AssetImage(movie.posterPath),
               ),
             ),
           ),
@@ -57,7 +57,7 @@ class MovieCard extends StatelessWidget {
             ),
             SizedBox(width: defaultPadding / 2),
             Text(
-              "${movie.rating}",
+              "${movie.voteAverage}",
               style: Theme.of(context).textTheme.bodyText2,
             )
           ],

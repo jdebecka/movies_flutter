@@ -8,7 +8,7 @@ class Categorylist extends StatefulWidget {
 
 class _CategoryListState extends State<Categorylist> {
   int selectedCategory = 0;
-  List<String> categories = ["In Theater", "Box Office", "Coming Soon"];
+  List<String> categories = ["Movies", "Your account"];
 
   @override
   Widget build(BuildContext context) {

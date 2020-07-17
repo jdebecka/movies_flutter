@@ -4,7 +4,6 @@ import 'package:movies/models/movie.dart';
 
 import 'backdrop_rating.dart';
 import 'cast_and_crew.dart';
-import 'genres.dart';
 import 'title_duration_and_fav_btn.dart';
 
 class Body extends StatelessWidget {
@@ -22,7 +21,6 @@ class Body extends StatelessWidget {
           BackdropAndRating(size: size, movie: movie),
           SizedBox(height: defaultPadding / 2),
           TitleDurationAndFabBtn(movie: movie),
-          Genres(movie: movie),
           Padding(
             padding: EdgeInsets.symmetric(
               vertical: defaultPadding / 2,
