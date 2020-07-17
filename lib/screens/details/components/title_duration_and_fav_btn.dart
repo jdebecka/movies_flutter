@@ -8,7 +8,7 @@ class TitleDurationAndFabBtn extends StatelessWidget {
     @required this.movie,
   }) : super(key: key);
 
-  final Movie movie;
+  final Result movie;
 
   @override
   Widget build(BuildContext context) {

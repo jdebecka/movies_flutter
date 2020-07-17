@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:movies/services/location.dart';
 import '../constants.dart';
 import '../models/movie.dart';
+import '../models/movie.dart';
 
 class NetworkHelper {
   NetworkHelper(this.url);
@@ -16,7 +17,7 @@ class NetworkHelper {
     if (response.statusCode == 200) {
       String data = response.body;
 
-      return jsonDecode(data);
+      return movieFromJson(data);
     } else {
       print(response.statusCode);
     }
