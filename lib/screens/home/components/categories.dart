@@ -3,7 +3,6 @@ import 'package:movies/screens/login/sign_in_screen.dart';
 
 import '../../../constants.dart';
 
-// We need stateful widget because we need to change some sate on our category
 class Categorylist extends StatefulWidget {
   @override
   _CategorylistState createState() => _CategorylistState();

@@ -12,7 +12,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(movie);
     return Container(
       child: SingleChildScrollView(
         child: Column(
