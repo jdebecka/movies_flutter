@@ -71,10 +71,9 @@ class BackdropAndRating extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w600),
                               ),
-                              TextSpan(text: "10\n"),
                               TextSpan(
-                                text: "150,212",
-                                style: TextStyle(color: textLightColor),
+                                text: "10\n",
+                                style: TextStyle(fontSize: 16),
                               ),
                             ],
                           ),
@@ -87,7 +86,7 @@ class BackdropAndRating extends StatelessWidget {
                       children: <Widget>[
                         SvgPicture.asset("assets/icons/star.svg"),
                         SizedBox(height: defaultPadding / 4),
-                        Text("Rate This",
+                        Text("Rate Film",
                             style: Theme.of(context).textTheme.bodyText2),
                       ],
                     ),

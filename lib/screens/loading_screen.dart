@@ -20,12 +20,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   void getMovieData() async {
     var movieData = await MovieModel().getNowPlaying();
-    print(movieData);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return HomeScreen(
-        movieData: movieData,
-      );
-    }));
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return HomeScreen(
+          movieData: movieData,
+        );
+      }),
+    );
   }
 
   @override

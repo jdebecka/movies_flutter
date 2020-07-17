@@ -20,6 +20,17 @@ class Body extends StatelessWidget {
             Categorylist(),
             SizedBox(height: defaultPadding),
             MovieCarousel(movies: movie),
+            SizedBox(height: defaultPadding),
+            Center(
+              child: Container(
+                child: Image(
+                  image: AssetImage('assets/images/tmdb_logo.jpg'),
+                ),
+                width: 100,
+                height: 100,
+              ),
+            ),
+            SizedBox(height: defaultPadding),
           ],
         ),
       ),
