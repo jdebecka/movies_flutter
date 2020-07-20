@@ -23,6 +23,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   )),
               SignUpForm(),
+<<<<<<< Updated upstream
               FlatButton(
                 padding: EdgeInsets.all(10),
                 onPressed: null,
@@ -51,6 +52,8 @@ class SignUpScreen extends StatelessWidget {
                 },
                 child: Text("Sign in"),
               )
+=======
+>>>>>>> Stashed changes
             ]),
       ),
     );
@@ -63,13 +66,46 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  final _firstNameTextController = TextEditingController();
-  final _lastNameTextController = TextEditingController();
   final _usernameTextController = TextEditingController();
+  final _emailTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+  var buttonEnabled = false;
+  var username = "";
+  var email = "";
+  var password = "";
 
+  bool _emailIsValid() {
+    if (email.contains("@") && email.contains(".com") && email.length > 0) {
+      return true;
+    }
+    return false;
+  }
+  bool _usernameIsValid() {
+    if (username.contains("@") || username.contains(".com")){
+      return false;
+    }
+    if (username.length == 0 || username.contains(" ")) {
+      return false;
+    }
+
+    return true;
+  }
+
+<<<<<<< Updated upstream
+=======
+  void _enableButtonIfPossible() {
+    if (_emailIsValid() && password.length > 4 && _usernameIsValid()) {
+      buttonEnabled = true;
+    } else {
+      buttonEnabled = false;
+    }
+    setState(() {});
+  }
+
+>>>>>>> Stashed changes
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,7 +113,15 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextFormField(
+<<<<<<< Updated upstream
               controller: _firstNameTextController,
+=======
+              onChanged: (username) {
+                this.username = username;
+                _enableButtonIfPossible();
+              },
+              controller: _usernameTextController,
+>>>>>>> Stashed changes
               decoration: InputDecoration(
                 hintText: 'username',
                 hintStyle: TextStyle(color: Colors.grey[400]),
@@ -96,7 +140,15 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextFormField(
+<<<<<<< Updated upstream
               controller: _lastNameTextController,
+=======
+              onChanged: (email) {
+                this.email = email;
+                _enableButtonIfPossible();
+              },
+              controller: _emailTextController,
+>>>>>>> Stashed changes
               decoration: InputDecoration(
                 hintText: 'email',
                 hintStyle: TextStyle(color: Colors.grey[400]),
@@ -115,8 +167,15 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextFormField(
+<<<<<<< Updated upstream
+=======
+              onChanged: (password) {
+                this.password = password;
+                _enableButtonIfPossible();
+              },
+>>>>>>> Stashed changes
               obscureText: true,
-              controller: _usernameTextController,
+              controller: _passwordTextController,
               decoration: InputDecoration(
                 hintText: 'password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
@@ -130,6 +189,19 @@ class _SignUpFormState extends State<SignUpForm> {
               style: TextStyle(
                 color: Colors.blueGrey[600],
               ),
+            ),
+          ),
+          FlatButton(
+            onPressed: () {
+            },
+            padding: EdgeInsets.all(10),
+            child: Container(
+              decoration: new BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: Colors.blueGrey[100],
+              ),
+              padding: EdgeInsets.all(10),
+              child: Text('Sign up'),
             ),
           ),
         ],
