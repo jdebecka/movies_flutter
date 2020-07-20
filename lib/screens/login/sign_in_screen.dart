@@ -75,6 +75,7 @@ class _SignInFormState extends State<SignUpForm> {
   }
 
   void _singInWithFirebase() async {
+
     try {
       final user = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
@@ -152,11 +153,11 @@ class _SignInFormState extends State<SignUpForm> {
             },
             child: Container(
               decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: buttonEnabled ? Colors.blue[100] : Colors.blueGrey[100],
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                color: buttonEnabled ? Colors.pink : Colors.pink[50],
               ),
-              padding: EdgeInsets.all(10),
-              child: Text('Sign in'),
+              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+              child: Text('Sign in', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
             ),
           ),
         ],
