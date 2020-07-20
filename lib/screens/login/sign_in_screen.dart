@@ -7,9 +7,9 @@ class SignInScreen extends StatelessWidget {
     void _signInButtonPressed() {}
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.white,
       ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +20,7 @@ class SignInScreen extends StatelessWidget {
                   child: Text(
                     'Sign In',
                     style: TextStyle(
-                      color: Colors.grey[400],
+                      color: Colors.pink,
                       fontSize: 40,
                     ),
                   )),
@@ -31,10 +31,10 @@ class SignInScreen extends StatelessWidget {
                 child: Container(
                   decoration: new BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.blueGrey[100],
+                    color: Colors.pink,
                   ),
                   padding: EdgeInsets.all(10),
-                  child: Text('Sign in'),
+                  child: Text('Sign in', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
                 ),
               ),
               Container(
