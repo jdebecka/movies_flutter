@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/screens/login/sign_up_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
@@ -56,7 +57,7 @@ class _SignInFormState extends State<SignUpForm> {
   var buttonEnabled = false;
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
-
+  final _auth = FirebaseAuth.instance;
   bool _emailIsValid() {
     if (email.contains("@") && email.contains(".com") && email.length > 6) {
       return true;
@@ -73,7 +74,17 @@ class _SignInFormState extends State<SignUpForm> {
     setState(() {});
   }
 
-  void _singInWithFirebase() {}
+  void _singInWithFirebase() async {
+    try {
+      print(email);
+      print(password);
+      final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      print("success");
+    } catch (e){
+      print("whoops something went wrong");
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
