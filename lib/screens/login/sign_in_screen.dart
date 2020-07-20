@@ -2,19 +2,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/screens/login/sign_up_screen.dart';
+
 class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void _signInButtonPressed() {}
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        iconTheme: IconThemeData(
-          color: Colors.pink
+          title: Text(
+        'Sign in',
+        style: TextStyle(
+          color: Colors.grey[400],
+          fontSize: 40,
         ),
-      ),
-      backgroundColor: Colors.white,
+      )),
+      backgroundColor: Colors.grey[200],
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -55,6 +57,7 @@ class _SignInFormState extends State<SignUpForm> {
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   final _auth = FirebaseAuth.instance;
+
   bool _emailIsValid() {
     if (email.contains("@") && email.contains(".com") && email.length > 6) {
       return true;
@@ -72,17 +75,17 @@ class _SignInFormState extends State<SignUpForm> {
   }
 
   void _singInWithFirebase() async {
-      try {
-        final user = await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
-        if (user != null) {
-          Navigator.pop(context);
-        }
-      } catch (e) {
-        print("whoops something went wrong");
-        print(e);
-      }
 
+    try {
+      final user = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      if (user != null) {
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      print("whoops something went wrong");
+      print(e);
+    }
   }
 
   @override
@@ -104,10 +107,10 @@ class _SignInFormState extends State<SignUpForm> {
                 hintText: 'email',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.pink[50]),
+                  borderSide: BorderSide(color: Colors.blueGrey[200]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.pink),
+                  borderSide: BorderSide(color: Colors.blueGrey[900]),
                 ),
               ),
               style: TextStyle(
@@ -128,10 +131,10 @@ class _SignInFormState extends State<SignUpForm> {
                 hintText: 'password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.pink[50]),
+                  borderSide: BorderSide(color: Colors.blueGrey[200]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.pink),
+                  borderSide: BorderSide(color: Colors.blueGrey[900]),
                 ),
               ),
               style: TextStyle(
