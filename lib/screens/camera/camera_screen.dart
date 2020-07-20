@@ -1,20 +1,21 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+
 import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 
 List<CameraDescription> cameras;
 
 Future<void> main() async {
   cameras = await availableCameras();
-  runApp(CameraApp());
+  runApp(CameraScreen());
 }
 
-class CameraApp extends StatefulWidget {
+class CameraScreen extends StatefulWidget {
   @override
-  _CameraAppState createState() => _CameraAppState();
+  _CameraScreenState createState() => _CameraScreenState();
 }
 
-class _CameraAppState extends State<CameraApp> {
+class _CameraScreenState extends State<CameraScreen> {
   CameraController controller;
 
   @override
@@ -41,8 +42,7 @@ class _CameraAppState extends State<CameraApp> {
       return Container();
     }
     return AspectRatio(
-        aspectRatio:
-        controller.value.aspectRatio,
+        aspectRatio: controller.value.aspectRatio,
         child: CameraPreview(controller));
   }
 }

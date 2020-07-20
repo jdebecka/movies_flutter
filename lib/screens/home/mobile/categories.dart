@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/screens/CameraScreen/CameraScreen.dart';
+import 'package:movies/screens/camera/camera_screen.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
 import 'package:movies/screens/map/mobile/map_screen.dart';
 
@@ -12,7 +12,12 @@ class Categorylist extends StatefulWidget {
 
 class _CategorylistState extends State<Categorylist> {
   int selectedCategory = 0;
-  List<String> categories = ["In Theaters", "Find cinema", "Your account", "Camera"];
+  List<String> categories = [
+    "In Theaters",
+    "Find cinema",
+    "Your account",
+    "Camera"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,37 +39,37 @@ class _CategorylistState extends State<Categorylist> {
         onTap: () {
           setState(() {
             selectedCategory = index;
-            switch(selectedCategory) {
-              case 0: {
-                // statements;
-              }
-              break;
+            switch (selectedCategory) {
+              case 0:
+                {}
+                break;
 
-              case 1: {
-                //statements;
-              }
-              break;
+              case 1:
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MapScreen()),
+                  );
+                }
+                break;
 
-              case 2: {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignInScreen()),
-                );
-              }
-              break;
+              case 2:
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInScreen()),
+                  );
+                }
+                break;
 
-              case 3: {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CameraApp()),
-                );
-              }
-              break;
-
-              default: {
-                //statements;
-              }
-              break;
+              case 3:
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraScreen()),
+                  );
+                }
+                break;
             }
             if (selectedCategory == 1) {
               Navigator.push(
