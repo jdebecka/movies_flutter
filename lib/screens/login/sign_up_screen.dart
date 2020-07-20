@@ -1,27 +1,25 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _signInButtonPressed() {}
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Sign up',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
-        ),
-      ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Center(
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.pink,
+                  ),
+                ),
+              ),
               SignUpForm(),
             ]),
       ),
@@ -38,7 +36,6 @@ class _SignUpFormState extends State<SignUpForm> {
   final _usernameTextController = TextEditingController();
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
-  final _auth = FirebaseAuth.instance;
   var buttonEnabled = false;
   var username = "";
   var email = "";
@@ -75,8 +72,6 @@ class _SignUpFormState extends State<SignUpForm> {
     try {
       print(email);
       print(password);
-      final newUser = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
       int count = 0;
       Navigator.of(context).popUntil((_) => count++ >= 2);
       print("success");
@@ -102,7 +97,7 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               controller: _usernameTextController,
               decoration: InputDecoration(
-                hintText: 'username',
+                hintText: 'Username',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueGrey[200]),
@@ -125,7 +120,7 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               controller: _emailTextController,
               decoration: InputDecoration(
-                hintText: 'email',
+                hintText: 'Email',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueGrey[200]),
@@ -149,7 +144,7 @@ class _SignUpFormState extends State<SignUpForm> {
               obscureText: true,
               controller: _passwordTextController,
               decoration: InputDecoration(
-                hintText: 'password',
+                hintText: 'Password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueGrey[200]),
@@ -163,20 +158,47 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          ButtonTheme(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-            child: RaisedButton(
-              onPressed: () {
-                _signUpWithFirebase();
+          Padding(
+            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
+            child: TextField(
+              onChanged: (password) {
+                this.password = password;
+                _enableButtonIfPossible();
               },
-              color: Colors.pink,
-              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
-              child: Text('Sign up',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0,
-                      fontWeight: FontWeight.w300)),
+              obscureText: true,
+              controller: _passwordTextController,
+              decoration: InputDecoration(
+                hintText: 'Repeat Password',
+                hintStyle: TextStyle(color: Colors.grey[400]),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueGrey[200]),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueGrey[900]),
+                ),
+              ),
+              style: TextStyle(
+                color: Colors.blueGrey[600],
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 30.0),
+            child: ButtonTheme(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40)),
+              child: RaisedButton(
+                onPressed: () {
+                  _signUpWithFirebase();
+                },
+                color: Colors.pink,
+                padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+                child: Text('Sign up',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w300)),
+              ),
             ),
           ),
         ],
