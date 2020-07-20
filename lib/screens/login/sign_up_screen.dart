@@ -76,6 +76,8 @@ class _SignUpFormState extends State<SignUpForm> {
       print(email);
       print(password);
       final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      int count = 0;
+      Navigator.of(context).popUntil((_) => count++ >= 2);
       print("success");
     } catch (e){
       print("whoops something went wrong");

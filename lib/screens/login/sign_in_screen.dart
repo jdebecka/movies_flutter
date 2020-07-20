@@ -79,7 +79,7 @@ class _SignInFormState extends State<SignUpForm> {
         final user = await _auth.signInWithEmailAndPassword(
             email: email, password: password);
         if (user != null) {
-          print("success");
+          Navigator.pop(context);
         }
       } catch (e) {
         print("whoops something went wrong");
