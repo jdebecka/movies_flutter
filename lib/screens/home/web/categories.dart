@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
+import 'package:movies/screens/map/mobile/map_screen.dart';
 
 class CategoryList extends StatefulWidget {
   @override
@@ -35,6 +36,12 @@ class _CategoryListState extends State<CategoryList> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SignInScreen()),
+              );
+            }
+            if (selectedCategory == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MapScreen()),
               );
             }
           });

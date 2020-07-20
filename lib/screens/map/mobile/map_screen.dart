@@ -20,6 +20,7 @@ class _Map extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Maps Sample App'),

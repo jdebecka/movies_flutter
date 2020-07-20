@@ -11,7 +11,7 @@ class SignUpScreen extends StatelessWidget {
         title: Text(
           'Sign up',
           style: TextStyle(
-            color: Colors.pink,
+            color: Colors.white,
             fontSize: 20,
           ),
         ),
@@ -172,7 +172,7 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               color: Colors.pink,
               padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
-              child: Text('Sign in',
+              child: Text('Sign up',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 17.0,
