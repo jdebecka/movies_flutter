@@ -7,35 +7,35 @@ class SignUpScreen extends StatelessWidget {
     void _signInButtonPressed() {}
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.pink,
+        ),
       ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
                   child: Text(
                     'Sign up',
                     style: TextStyle(
-                      color: Colors.grey[400],
+                      color: Colors.pink,
                       fontSize: 40,
                     ),
                   )),
               SignUpForm(),
-              FlatButton(
-                onPressed: () {
-                },
-                padding: EdgeInsets.all(10),
-                child: Container(
-                  decoration: new BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.blueGrey[100],
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Text('Sign up'),
+              ButtonTheme(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+                child: RaisedButton(
+                  onPressed: () {},
+                    color: Colors.pink,
+                  padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+                  child: Text('Sign up', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
                 ),
               ),
             ]),
@@ -76,10 +76,10 @@ class _SignUpFormState extends State<SignUpForm> {
                 hintText: 'username',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[200]),
+                  borderSide: BorderSide(color: Colors.pink[50]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[900]),
+                  borderSide: BorderSide(color: Colors.pink),
                 ),
               ),
               style: TextStyle(
@@ -98,10 +98,10 @@ class _SignUpFormState extends State<SignUpForm> {
                 hintText: 'email',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[200]),
+                  borderSide: BorderSide(color: Colors.pink[50]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[900]),
+                  borderSide: BorderSide(color: Colors.pink),
                 ),
               ),
               style: TextStyle(
@@ -110,7 +110,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
+            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 30.0),
             child: TextFormField(
               onChanged: (_firstNameTextController) {
                 password = _usernameTextController.toString();
@@ -121,10 +121,10 @@ class _SignUpFormState extends State<SignUpForm> {
                 hintText: 'password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[200]),
+                  borderSide: BorderSide(color: Colors.pink[50]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[900]),
+                  borderSide: BorderSide(color: Colors.pink),
                 ),
               ),
               style: TextStyle(

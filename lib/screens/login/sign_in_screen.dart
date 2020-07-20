@@ -8,6 +8,10 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.pink
+        ),
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -16,7 +20,7 @@ class SignInScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 12.0),
+                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
                   child: Text(
                     'Sign In',
                     style: TextStyle(
@@ -25,15 +29,12 @@ class SignInScreen extends StatelessWidget {
                     ),
                   )),
               SignUpForm(),
-              FlatButton(
-                padding: EdgeInsets.all(10),
-                onPressed: null,
-                child: Container(
-                  decoration: new BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.pink,
-                  ),
-                  padding: EdgeInsets.all(10),
+              ButtonTheme(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+                child: RaisedButton(
+                  onPressed: () {},
+                  color: Colors.pink,
+                  padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
                   child: Text('Sign in', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
                 ),
               ),
@@ -83,10 +84,10 @@ class _SignInFormState extends State<SignUpForm> {
                 hintText: 'email',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[200]),
+                  borderSide: BorderSide(color: Colors.pink[50]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[900]),
+                  borderSide: BorderSide(color: Colors.pink),
                 ),
               ),
               style: TextStyle(
@@ -95,7 +96,7 @@ class _SignInFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
+            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 30.0),
             child: TextFormField(
               obscureText: true,
               controller: _passwordTextController,
@@ -103,10 +104,10 @@ class _SignInFormState extends State<SignUpForm> {
                 hintText: 'password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[200]),
+                  borderSide: BorderSide(color: Colors.pink[50]),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueGrey[900]),
+                  borderSide: BorderSide(color: Colors.pink),
                 ),
               ),
               style: TextStyle(
