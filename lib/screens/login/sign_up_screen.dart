@@ -11,8 +11,8 @@ class SignUpScreen extends StatelessWidget {
         title: Text(
           'Sign up',
           style: TextStyle(
-            color: Colors.grey[400],
-            fontSize: 40,
+            color: Colors.pink,
+            fontSize: 20,
           ),
         ),
       ),
@@ -163,18 +163,20 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          FlatButton(
-            onPressed: () {
-              _signUpWithFirebase();
-            },
-            padding: EdgeInsets.all(10),
-            child: Container(
-              decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: buttonEnabled ? Colors.blue[100] : Colors.blueGrey[100],
-              ),
-              padding: EdgeInsets.all(10),
-              child: Text('Sign up'),
+          ButtonTheme(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+            child: RaisedButton(
+              onPressed: () {
+                _signUpWithFirebase();
+              },
+              color: Colors.pink,
+              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+              child: Text('Sign in',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w300)),
             ),
           ),
         ],
