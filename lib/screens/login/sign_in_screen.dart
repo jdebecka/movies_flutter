@@ -75,15 +75,17 @@ class _SignInFormState extends State<SignUpForm> {
   }
 
   void _singInWithFirebase() async {
-    try {
-      print(email);
-      print(password);
-      final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      print("success");
-    } catch (e){
-      print("whoops something went wrong");
-      print(e);
-    }
+      try {
+        final user = await _auth.signInWithEmailAndPassword(
+            email: email, password: password);
+        if (user != null) {
+          print("success");
+        }
+      } catch (e) {
+        print("whoops something went wrong");
+        print(e);
+      }
+
   }
 
   @override

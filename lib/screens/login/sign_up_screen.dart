@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
@@ -38,6 +39,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final _usernameTextController = TextEditingController();
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
   var buttonEnabled = false;
   var username = "";
   var email = "";
@@ -67,6 +69,18 @@ class _SignUpFormState extends State<SignUpForm> {
       buttonEnabled = false;
     }
     setState(() {});
+  }
+
+  void _signUpWithFirebase() async {
+    try {
+      print(email);
+      print(password);
+      final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      print("success");
+    } catch (e){
+      print("whoops something went wrong");
+      print(e);
+    }
   }
 
   @override
@@ -148,6 +162,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           FlatButton(
             onPressed: () {
+              _signUpWithFirebase();
             },
             padding: EdgeInsets.all(10),
             child: Container(
