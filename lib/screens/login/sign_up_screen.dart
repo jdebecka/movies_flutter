@@ -83,11 +83,6 @@ class _SignUpFormState extends State<SignUpForm> {
       print(e);
     }
   }
-
-  var username;
-  var email;
-  var password;
-
   @override
   Widget build(BuildContext context) {
     return Container(
