@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:movies/constants.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
 
-import '../../../constants.dart';
-
-class Categorylist extends StatefulWidget {
+class CategoryList extends StatefulWidget {
   @override
-  _CategorylistState createState() => _CategorylistState();
+  _CategoryListState createState() => _CategoryListState();
 }
 
-class _CategorylistState extends State<Categorylist> {
+class _CategoryListState extends State<CategoryList> {
   int selectedCategory = 0;
-  List<String> categories = ["In Theaters", "Your account"];
+  List<String> categories = ["In Theaters", "Find cinema", "Your account"];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class _CategorylistState extends State<Categorylist> {
         onTap: () {
           setState(() {
             selectedCategory = index;
-            if (selectedCategory == 1) {
+            if (selectedCategory == 2) {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SignInScreen()),
@@ -45,7 +44,7 @@ class _CategorylistState extends State<Categorylist> {
           children: <Widget>[
             Text(
               categories[index],
-              style: Theme.of(context).textTheme.headline5.copyWith(
+              style: Theme.of(context).textTheme.headline6.copyWith(
                     fontWeight: FontWeight.w600,
                     color: index == selectedCategory
                         ? textColor
@@ -54,8 +53,8 @@ class _CategorylistState extends State<Categorylist> {
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
-              height: 6,
-              width: 40,
+              height: 3,
+              width: 80,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: index == selectedCategory

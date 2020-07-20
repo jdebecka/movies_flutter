@@ -5,19 +5,18 @@ import 'package:movies/models/movie.dart';
 import 'categories.dart';
 import 'movie_carousel.dart';
 
-class Body extends StatelessWidget {
+class BodyMobile extends StatelessWidget {
   final List<Result> movie;
 
-  const Body({Key key, this.movie}) : super(key: key);
+  const BodyMobile({Key key, this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Container(
         child: Column(
           children: <Widget>[
             Categorylist(),
-            SizedBox(height: defaultPadding),
             MovieCarousel(movies: movie),
             SizedBox(height: defaultPadding),
             Center(
@@ -29,11 +28,10 @@ class Body extends StatelessWidget {
                 height: 100,
               ),
             ),
-            SizedBox(height: defaultPadding),
           ],
         ),
+        margin: EdgeInsets.only(top: 45.0),
       ),
-      margin: EdgeInsets.only(top: 45.0),
     );
   }
 }

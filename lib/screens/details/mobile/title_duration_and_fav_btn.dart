@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies/models/movie.dart';
 import 'package:intl/intl.dart';
+import 'package:movies/models/movie.dart';
 
 import '../../../constants.dart';
 
