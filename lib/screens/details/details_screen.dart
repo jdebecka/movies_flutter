@@ -17,12 +17,12 @@ class DetailsScreen extends StatelessWidget {
         if (constraints.maxWidth < 600) {
           return Scaffold(
             backgroundColor: Colors.white,
-            body: BodyMobile(),
+            body: BodyMobile(movie: movie),
           );
         } else {
           return Scaffold(
             backgroundColor: Colors.white,
-            body: BodyWeb(),
+            body: BodyWeb(movie: movie),
           );
         }
       },

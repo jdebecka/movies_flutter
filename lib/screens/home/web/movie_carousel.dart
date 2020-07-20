@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/constants.dart';
 import 'package:movies/models/movie.dart';
@@ -18,38 +19,17 @@ class _MovieCarouselState extends State<MovieCarousel> {
   _MovieCarouselState(this.movies);
 
   @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(
-      viewportFraction: 1,
-      initialPage: initialPage,
-    );
-  }
-
-  PageController _pageController;
-  int initialPage = 1;
-
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       height: 500,
+      margin: EdgeInsets.all(defaultPadding),
       child: ListView.builder(
-          physics: ClampingScrollPhysics(),
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: movies.length,
-          itemBuilder: (context, index) => Container(
-                margin: EdgeInsets.symmetric(vertical: defaultPadding),
-                child: MovieCard(
-                  movie: movies[index],
-                ),
-              )),
+        physics: ClampingScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: movies.length,
+        itemBuilder: (context, index) => MovieCard(movie: movies[index]),
+      ),
     );
   }
 }
