@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/screens/login/sign_up_screen.dart';
@@ -19,29 +20,7 @@ class SignInScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-<<<<<<< HEAD
-              Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(
-                      color: Colors.pink,
-                      fontSize: 40,
-                    ),
-                  )),
               SignUpForm(),
-              ButtonTheme(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-                child: RaisedButton(
-                  onPressed: () {},
-                  color: Colors.pink,
-                  padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
-                  child: Text('Sign in', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
-                ),
-              ),
-=======
-              SignUpForm(),
->>>>>>> e7ef981617e0538a4789b32ba670affc25e293a4
               Container(
                 margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
                 child: Text(
@@ -137,17 +116,12 @@ class _SignInFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-<<<<<<< HEAD
-            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 30.0),
-            child: TextFormField(
-=======
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextField(
               onChanged: (password) {
                 this.password = password;
                 _enableButtonIfPossible();
               },
->>>>>>> e7ef981617e0538a4789b32ba670affc25e293a4
               obscureText: true,
               controller: _passwordTextController,
               decoration: InputDecoration(
@@ -176,11 +150,11 @@ class _SignInFormState extends State<SignUpForm> {
             },
             child: Container(
               decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: buttonEnabled ? Colors.blue[100] : Colors.blueGrey[100],
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                color: buttonEnabled ? Colors.pink : Colors.pink[50],
               ),
-              padding: EdgeInsets.all(10),
-              child: Text('Sign in'),
+              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+              child: Text('Sign in', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
             ),
           ),
         ],

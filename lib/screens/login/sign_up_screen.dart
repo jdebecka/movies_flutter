@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,21 +8,18 @@ class SignUpScreen extends StatelessWidget {
     void _signInButtonPressed() {}
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
         backgroundColor: Colors.white,
         elevation: 0.0,
         iconTheme: IconThemeData(
           color: Colors.pink,
         ),
-=======
         title: Text(
-        'Sign up',
-        style: TextStyle(
-          color: Colors.grey[400],
-          fontSize: 40,
+          'Sign up',
+          style: TextStyle(
+            color: Colors.pink,
+            fontSize: 20,
+          ),
         ),
-      ),
->>>>>>> e7ef981617e0538a4789b32ba670affc25e293a4
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -29,29 +27,7 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-<<<<<<< HEAD
-              Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
-                  child: Text(
-                    'Sign up',
-                    style: TextStyle(
-                      color: Colors.pink,
-                      fontSize: 40,
-                    ),
-                  )),
               SignUpForm(),
-              ButtonTheme(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-                child: RaisedButton(
-                  onPressed: () {},
-                    color: Colors.pink,
-                  padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
-                  child: Text('Sign up', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w300)),
-                ),
-              ),
-=======
-              SignUpForm(),
->>>>>>> e7ef981617e0538a4789b32ba670affc25e293a4
             ]),
       ),
     );
@@ -79,8 +55,9 @@ class _SignUpFormState extends State<SignUpForm> {
     }
     return false;
   }
+
   bool _usernameIsValid() {
-    if (username.contains("@") || username.contains(".com")){
+    if (username.contains("@") || username.contains(".com")) {
       return false;
     }
     if (username.length == 0 || username.contains(" ")) {
@@ -103,19 +80,16 @@ class _SignUpFormState extends State<SignUpForm> {
     try {
       print(email);
       print(password);
-      final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      final newUser = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       int count = 0;
       Navigator.of(context).popUntil((_) => count++ >= 2);
       print("success");
-    } catch (e){
+    } catch (e) {
       print("whoops something went wrong");
       print(e);
     }
   }
-
-  var username;
-  var email;
-  var password;
 
   @override
   Widget build(BuildContext context) {
@@ -171,18 +145,11 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-<<<<<<< HEAD
-            padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 30.0),
-            child: TextFormField(
-              onChanged: (_firstNameTextController) {
-                password = _usernameTextController.toString();
-=======
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextField(
               onChanged: (password) {
                 this.password = password;
                 _enableButtonIfPossible();
->>>>>>> e7ef981617e0538a4789b32ba670affc25e293a4
               },
               obscureText: true,
               controller: _passwordTextController,
@@ -201,18 +168,20 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          FlatButton(
-            onPressed: () {
-              _signUpWithFirebase();
-            },
-            padding: EdgeInsets.all(10),
-            child: Container(
-              decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: buttonEnabled ? Colors.blue[100] : Colors.blueGrey[100],
-              ),
-              padding: EdgeInsets.all(10),
-              child: Text('Sign up'),
+          ButtonTheme(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+            child: RaisedButton(
+              onPressed: () {
+                _signUpWithFirebase();
+              },
+              color: Colors.pink,
+              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+              child: Text('Sign in',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w300)),
             ),
           ),
         ],
