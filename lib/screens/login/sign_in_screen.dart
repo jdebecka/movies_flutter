@@ -1,51 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
-=======
 import 'package:movies/screens/login/sign_up_screen.dart';
->>>>>>> Stashed changes
 
 class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void _signInButtonPressed() {}
     return Scaffold(
-<<<<<<< Updated upstream
-=======
       appBar: AppBar(
-        backgroundColor: Colors.grey[200],
+        title: Text(
+          'Sign in',
+          style: TextStyle(
+            color: Colors.grey[400],
+            fontSize: 40,
+          ),
+        )
       ),
->>>>>>> Stashed changes
       backgroundColor: Colors.grey[200],
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 24.0),
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                      fontSize: 40,
-                    ),
-                  )),
               SignUpForm(),
-<<<<<<< Updated upstream
-              FlatButton(
-                padding: EdgeInsets.all(10),
-                onPressed: null,
-                child: Container(
-                  decoration: new BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.blueGrey[100],
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Text('Sign in'),
-                ),
-              ),
-=======
               Container(
                 margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
                 child: Text(
@@ -62,7 +39,6 @@ class SignInScreen extends StatelessWidget {
                 },
                 child: Text("Sign up"),
               ),
->>>>>>> Stashed changes
             ]),
       ),
     );
@@ -75,21 +51,21 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignInFormState extends State<SignUpForm> {
-  String email = "";
+  var email = "";
   var password = "";
   var buttonEnabled = false;
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
 
   bool _emailIsValid() {
-    if (email.contains("@") && email.contains(".com") && email.length > 4) {
+    if (email.contains("@") && email.contains(".com") && email.length > 6) {
       return true;
     }
     return false;
   }
 
   void _enableButtonIfPossible() {
-    if (password.length > 0 && _emailIsValid()) {
+    if (password.length > 4 && _emailIsValid()) {
       buttonEnabled = true;
     } else {
       buttonEnabled = false;

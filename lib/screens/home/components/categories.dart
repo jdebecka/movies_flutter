@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/screens/login/sign_up_screen.dart';
+import 'package:movies/screens/login/sign_in_screen.dart';
 
 import '../../../constants.dart';
 
@@ -36,7 +36,7 @@ class _CategorylistState extends State<Categorylist> {
             if (selectedCategory == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()),
+                MaterialPageRoute(builder: (context) => SignInScreen()),
               );
             }
           });
