@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/screens/login/sign_in_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -84,6 +83,10 @@ class _SignUpFormState extends State<SignUpForm> {
       print(e);
     }
   }
+
+  var username;
+  var email;
+  var password;
 
   @override
   Widget build(BuildContext context) {

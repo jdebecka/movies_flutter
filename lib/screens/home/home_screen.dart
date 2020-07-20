@@ -10,8 +10,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Body(
-        movie: movieData.results,
+      body: Container(
+        child: Body(movie: movieData.results),
       ),
     );
   }

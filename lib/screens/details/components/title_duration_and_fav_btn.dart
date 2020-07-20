@@ -21,47 +21,16 @@ class TitleDurationAndFabBtn extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  movie.title,
-                  style: Theme.of(context).textTheme.headline5,
+                Center(
+                  child: Text(
+                    movie.title,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
                 ),
                 SizedBox(height: defaultPadding / 2),
-                Row(
-                  children: <Widget>[
-                    Text(
-                      '${movie.releaseDate}',
-                      style: TextStyle(color: textLightColor),
-                    ),
-                    SizedBox(width: defaultPadding),
-                    Text(
-                      "PG-13",
-                      style: TextStyle(color: textLightColor),
-                    ),
-                    SizedBox(width: defaultPadding),
-                    Text(
-                      "2h 32min",
-                      style: TextStyle(color: textLightColor),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
-          SizedBox(
-            height: 64,
-            width: 64,
-            child: FlatButton(
-              onPressed: () {},
-              color: secondaryColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Icon(
-                Icons.add,
-                size: 28,
-                color: Colors.white,
-              ),
-            ),
-          )
         ],
       ),
     );

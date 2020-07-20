@@ -27,8 +27,8 @@ class Body extends StatelessWidget {
               horizontal: defaultPadding,
             ),
             child: Text(
-              "Plot Summary",
-              style: Theme.of(context).textTheme.headline5,
+              "Plot Overview",
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
           Padding(
@@ -37,6 +37,7 @@ class Body extends StatelessWidget {
               movie.overview,
               style: TextStyle(
                 color: Color(0xFF737599),
+                  fontSize: 17
               ),
             ),
           ),
