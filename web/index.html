@@ -3,39 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Nice movie database app with some additional functions">
+  <meta content="Nice movie database app with some additional functions" name="description">
 
   <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="movies">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="movies" name="apple-mobile-web-app-title">
+  <link href="icons/Icon-192.png" rel="apple-touch-icon">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link href="favicon.png" rel="shortcut icon" type="image/png"/>
 
   <title>movies</title>
-  <link rel="manifest" href="manifest.json">
+  <link href="manifest.json" rel="manifest">
 </head>
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
-  </script>
-  <script src="main.dart.js" type="application/javascript"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="main.dart.js" type="application/javascript"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
 
-  <script>
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+
+<script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyA-ktp9A-YXGrQUh10rINg5-wg7kfsnV1s",
@@ -48,6 +41,18 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  </script>
+
+
+
+</script>
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+
+
+</script>
 </body>
 </html>

@@ -6,10 +6,10 @@ import '../../../models/movie.dart';
 import 'backdrop_rating.dart';
 import 'title_duration_and_fav_btn.dart';
 
-class Body extends StatelessWidget {
+class BodyMobile extends StatelessWidget {
   final Result movie;
 
-  const Body({Key key, this.movie}) : super(key: key);
+  const BodyMobile({Key key, this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +35,7 @@ class Body extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
               movie.overview,
-              style: TextStyle(
-                color: Color(0xFF737599),
-                  fontSize: 17
-              ),
+              style: TextStyle(color: Color(0xFF737599), fontSize: 17),
             ),
           ),
         ],

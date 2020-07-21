@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies/screens/camera/camera_screen.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
+import 'package:movies/screens/map/mobile/map_screen.dart';
 
 import '../../../constants.dart';
 
@@ -10,7 +12,12 @@ class Categorylist extends StatefulWidget {
 
 class _CategorylistState extends State<Categorylist> {
   int selectedCategory = 0;
-  List<String> categories = ["In Theaters", "Your account"];
+  List<String> categories = [
+    "In Theaters",
+    "Find cinema",
+    "Your account",
+    "Camera"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +39,42 @@ class _CategorylistState extends State<Categorylist> {
         onTap: () {
           setState(() {
             selectedCategory = index;
+            switch (selectedCategory) {
+              case 0:
+                {}
+                break;
+
+              case 1:
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MapScreen()),
+                  );
+                }
+                break;
+
+              case 2:
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInScreen()),
+                  );
+                }
+                break;
+
+              case 3:
+                {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraScreen()),
+                  );
+                }
+                break;
+            }
             if (selectedCategory == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SignInScreen()),
+                MaterialPageRoute(builder: (context) => MapScreen()),
               );
             }
           });
@@ -54,8 +93,8 @@ class _CategorylistState extends State<Categorylist> {
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: defaultPadding / 2),
-              height: 6,
-              width: 40,
+              height: 3,
+              width: 60,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: index == selectedCategory

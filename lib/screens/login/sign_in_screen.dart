@@ -1,28 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/screens/login/sign_up_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _signInButtonPressed() {}
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Sign in',
-          style: TextStyle(
-            color: Colors.grey[400],
-            fontSize: 40,
-          ),
-        )
-      ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Center(
+                child: Text(
+                  'Sign In',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.pink,
+                  ),
+                ),
+              ),
               SignUpForm(),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
@@ -58,6 +57,7 @@ class _SignInFormState extends State<SignUpForm> {
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   final _auth = FirebaseAuth.instance;
+
   bool _emailIsValid() {
     if (email.contains("@") && email.contains(".com") && email.length > 6) {
       return true;
@@ -75,17 +75,16 @@ class _SignInFormState extends State<SignUpForm> {
   }
 
   void _singInWithFirebase() async {
-      try {
-        final user = await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
-        if (user != null) {
-          Navigator.pop(context);
-        }
-      } catch (e) {
-        print("whoops something went wrong");
-        print(e);
+    try {
+      final user = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      if (user != null) {
+        Navigator.pop(context);
       }
-
+    } catch (e) {
+      print("whoops something went wrong");
+      print(e);
+    }
   }
 
   @override
@@ -104,7 +103,7 @@ class _SignInFormState extends State<SignUpForm> {
               },
               controller: _emailTextController,
               decoration: InputDecoration(
-                hintText: 'email',
+                hintText: 'Email',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueGrey[200]),
@@ -128,7 +127,7 @@ class _SignInFormState extends State<SignUpForm> {
               obscureText: true,
               controller: _passwordTextController,
               decoration: InputDecoration(
-                hintText: 'password',
+                hintText: 'Password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueGrey[200]),
@@ -153,11 +152,15 @@ class _SignInFormState extends State<SignUpForm> {
             },
             child: Container(
               decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: buttonEnabled ? Colors.blue[100] : Colors.blueGrey[100],
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                color: buttonEnabled ? Colors.pink : Colors.pink[50],
               ),
-              padding: EdgeInsets.all(10),
-              child: Text('Sign in'),
+              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+              child: Text('Sign in',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w300)),
             ),
           ),
         ],

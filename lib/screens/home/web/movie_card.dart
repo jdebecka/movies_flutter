@@ -17,19 +17,18 @@ class MovieCard extends StatelessWidget {
       child: OpenContainer(
         closedElevation: 0,
         openElevation: 0,
-        closedBuilder: (context, action) => buildMovieCard(context),
+        closedBuilder: (context, action) => buildCard(context),
         openBuilder: (context, action) => DetailsScreen(movie: movie),
       ),
     );
   }
 
-  Column buildMovieCard(BuildContext context) {
+  Column buildCard(BuildContext context) {
     return Column(
       children: <Widget>[
         Expanded(
           child: Container(
-            width: 400,
-            height: 700,
+            width: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               boxShadow: [defaultShadow],
@@ -43,10 +42,9 @@ class MovieCard extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: defaultPadding / 2),
           child: Text(
             movie.title,
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(fontWeight: FontWeight.w600),
+            style: TextStyle(
+                fontSize: 20, color: Colors.pink, fontWeight: FontWeight.w600),
+            textAlign: TextAlign.center,
           ),
         ),
         Row(
