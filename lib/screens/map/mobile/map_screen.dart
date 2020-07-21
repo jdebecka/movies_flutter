@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:movies/models/store_locator.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -9,10 +10,24 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  final Map<String, Marker> _markers = {};
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+  Future<void> _onMapCreated(GoogleMapController controller) async {
+    final stores = await getStores();
+    setState(() {
+      _markers.clear();
+      for (final store in stores.stores) {
+        final marker = Marker(
+          markerId: MarkerId(store.name),
+          position: LatLng(store.latitude, store.longitude),
+          infoWindow: InfoWindow(
+            title: store.name,
+            snippet: store.address.toString(),
+          ),
+        );
+        _markers[store.name] = marker;
+      }
+    });
   }
 
   @override
@@ -23,9 +38,10 @@ class _MapScreenState extends State<MapScreen> {
         body: GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
+            target: const LatLng(51.509865, -0.118092),
+            zoom: 2,
           ),
+          markers: _markers.values.toSet(),
         ),
       ),
     );
