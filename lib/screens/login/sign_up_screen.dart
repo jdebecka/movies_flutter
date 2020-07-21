@@ -6,22 +6,27 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.pink,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 400,
+          ),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.pink,
+                    ),
                   ),
                 ),
-              ),
-              SignUpForm(),
-            ]),
+                SignUpForm(),
+              ]),
+        ),
       ),
     );
   }
@@ -36,10 +41,12 @@ class _SignUpFormState extends State<SignUpForm> {
   final _usernameTextController = TextEditingController();
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
+  final _repeatPasswordTextController = TextEditingController();
   var buttonEnabled = false;
   var username = "";
   var email = "";
   var password = "";
+  var repeatPassword = "";
 
   bool _emailIsValid() {
     if (email.contains("@") && email.contains(".com") && email.length > 6) {
@@ -59,8 +66,15 @@ class _SignUpFormState extends State<SignUpForm> {
     return true;
   }
 
+  bool _passwordIsValid() {
+    if (password.length > 4 && password == repeatPassword) {
+      return true;
+    }
+    return false;
+  }
+
   void _enableButtonIfPossible() {
-    if (_emailIsValid() && password.length > 4 && _usernameIsValid()) {
+    if (_emailIsValid() && _passwordIsValid() && _usernameIsValid()) {
       buttonEnabled = true;
     } else {
       buttonEnabled = false;
@@ -162,11 +176,11 @@ class _SignUpFormState extends State<SignUpForm> {
             padding: EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
             child: TextField(
               onChanged: (password) {
-                this.password = password;
+                this.repeatPassword = password;
                 _enableButtonIfPossible();
               },
               obscureText: true,
-              controller: _passwordTextController,
+              controller: _repeatPasswordTextController,
               decoration: InputDecoration(
                 hintText: 'Repeat Password',
                 hintStyle: TextStyle(color: Colors.grey[400]),
@@ -189,9 +203,11 @@ class _SignUpFormState extends State<SignUpForm> {
                   borderRadius: BorderRadius.circular(40)),
               child: RaisedButton(
                 onPressed: () {
-                  _signUpWithFirebase();
+                  if (buttonEnabled) {
+                    _signUpWithFirebase();
+                  }
                 },
-                color: Colors.pink,
+                color: buttonEnabled ? Colors.pink : Colors.pink[50],
                 padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
                 child: Text('Sign up',
                     style: TextStyle(
