@@ -59,7 +59,6 @@ class _CameraScreenState extends State<CameraScreen> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       onTap: () {
-                        print('hello camera');
                         _openCamera();
                       },
                     ),
