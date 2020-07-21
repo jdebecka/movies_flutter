@@ -8,38 +8,43 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(
-                  'Sign In',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.pink,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 400,
+          ),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.pink,
+                    ),
                   ),
                 ),
-              ),
-              SignUpForm(),
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
-                child: Text(
-                  "Don't have an account?",
-                  style: TextStyle(color: Colors.grey[500]),
+                SignUpForm(),
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 14, 0, 0),
+                  child: Text(
+                    "Don't have an account?",
+                    style: TextStyle(color: Colors.grey[500]),
+                  ),
                 ),
-              ),
-              FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUpScreen()),
-                  );
-                },
-                child: Text("Sign up"),
-              ),
-            ]),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    );
+                  },
+                  child: Text("Sign up"),
+                ),
+              ]),
+        ),
       ),
     );
   }
