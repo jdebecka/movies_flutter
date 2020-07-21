@@ -14,7 +14,7 @@ class _CategorylistState extends State<Categorylist> {
   int selectedCategory = 0;
   List<String> categories = [
     "In Theaters",
-    "Find cinema",
+    "Find Shop",
     "Your account",
     "Camera"
   ];

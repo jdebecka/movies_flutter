@@ -21,7 +21,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 400,
       margin: EdgeInsets.all(defaultPadding),
       child: ListView.builder(
         physics: ClampingScrollPhysics(),
