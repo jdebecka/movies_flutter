@@ -1,14 +1,8 @@
-import 'dart:async';
+import 'dart:io';
 
-import 'package:camera/camera.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-List<CameraDescription> cameras;
-
-Future<void> main() async {
-  cameras = await availableCameras();
-  runApp(CameraScreen());
-}
+import 'package:image_picker/image_picker.dart';
 
 class CameraScreen extends StatefulWidget {
   @override
@@ -16,33 +10,102 @@ class CameraScreen extends StatefulWidget {
 }
 
 class _CameraScreenState extends State<CameraScreen> {
-  CameraController controller;
+  File imageFile;
+  final _picker = ImagePicker();
 
-  @override
-  void initState() {
-    super.initState();
-    controller = CameraController(cameras[0], ResolutionPreset.medium);
-    controller.initialize().then((_) {
-      if (!mounted) {
-        return;
-      }
-      setState(() {});
+  Future _openGallery() async {
+    final pickedPath = await _picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      imageFile = File(pickedPath.path);
+    });
+    Navigator.of(context).pop();
+  }
+
+  Future _openCamera() async {
+    final pickedPath = await _picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      imageFile = File(pickedPath.path);
     });
   }
 
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
+  Future<void> _showChoiceDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Choose photo from?"),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      child: Text(
+                        "Gallery",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        _openGallery();
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      child: Text(
+                        "Camera",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        print('hello camera');
+                        _openCamera();
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  Widget presentAccordingly() {
+    if (imageFile == null) {
+      return Text("No Image Selected");
+    }
+    return Image.file(imageFile);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!controller.value.isInitialized) {
-      return Container();
-    }
-    return AspectRatio(
-        aspectRatio: controller.value.aspectRatio,
-        child: CameraPreview(controller));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Image page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Center(
+              child: Expanded(
+                child: presentAccordingly(),
+              ),
+            ),
+            RaisedButton(
+              onPressed: () {
+                _showChoiceDialog(context);
+              },
+              child: Text('Select Image'),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _openCamera,
+        child: Icon(Icons.camera),
+      ),
+    );
   }
 }
