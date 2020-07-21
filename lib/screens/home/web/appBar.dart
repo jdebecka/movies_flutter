@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/screens/camera/camera_screen.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
-import 'package:movies/screens/map/mobile/map_screen.dart';
+import 'package:movies/screens/map/map_screen.dart';
 
 import 'default_button.dart';
 import 'menu_item.dart';

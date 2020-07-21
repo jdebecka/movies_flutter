@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:movies/models/store_locator.dart';
 
-class MapScreen extends StatefulWidget {
+class MapScreenMobile extends StatefulWidget {
   @override
-  _MapScreenState createState() => _MapScreenState();
+  _MapScreenMobileState createState() => _MapScreenMobileState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapScreenMobileState extends State<MapScreenMobile> {
   GoogleMapController mapController;
 
   final Map<String, Marker> _markers = {};
@@ -32,16 +32,21 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: const LatLng(51.509865, -0.118092),
-            zoom: 10,
+      home: Container(
+        height: size.height,
+        width: size.width,
+        child: Scaffold(
+          body: GoogleMap(
+            onMapCreated: _onMapCreated,
+            initialCameraPosition: CameraPosition(
+              target: const LatLng(51.509865, -0.118092),
+              zoom: 10,
+            ),
+            markers: _markers.values.toSet(),
           ),
-          markers: _markers.values.toSet(),
         ),
       ),
     );

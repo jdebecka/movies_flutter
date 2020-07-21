@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/screens/camera/camera_screen.dart';
 import 'package:movies/screens/login/sign_in_screen.dart';
-import 'package:movies/screens/map/mobile/map_screen.dart';
+import 'package:movies/screens/map/map_screen.dart';
 
 import '../../../constants.dart';
 
@@ -70,12 +70,6 @@ class _CategorylistState extends State<Categorylist> {
                   );
                 }
                 break;
-            }
-            if (selectedCategory == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MapScreen()),
-              );
             }
           });
         },
